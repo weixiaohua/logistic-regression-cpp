@@ -119,7 +119,8 @@ double train(SVMData &data , double lamda){
         std::cout<<"--------------------time"<<time<<"-----------------------"<<std::endl;
         Item it = data.instance[i++];
         std::vector<iv_pair> fea = it.values;
-        int y = it.y;
+        //int y = it.y;
+        int y = it.y==-1?0:it.y;
         double hx = sigmod_wx(weight,fea);
         double loss_01 = y-hx;
         for(int j=0;j!=fea.size();j++){
